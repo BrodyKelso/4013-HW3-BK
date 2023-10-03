@@ -1,10 +1,10 @@
 <?php
 require_once("util-db.php");
-require_once("model-teams-coaches.php");
+require_once("model-coaches-players.php");
 
-$pageTitle = "Coaches with players";
+$pageTitle = "Coaches with Players";
 include "view-header.php";
-$teamsCoaches = selectTeamsWithCoaches();
-include "view-teams-coaches.php";
+$coachesPlayers = selectCoachesWithPlayers();
+include "view-coaches-players.php";
 include "view-footer.php";
 ?>
