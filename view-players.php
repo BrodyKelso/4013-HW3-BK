@@ -42,7 +42,7 @@ if (isset($allPlayers) && $allPlayers->num_rows > 0) {
                         <td><?php echo $player['position']; ?></td>
                         <td><?php echo $player['jersey_number']; ?></td>
                         <td><?php echo $player['year']; ?></td>
-                        <td><?php echo $player['team_id']; ?></td>
+                       
                     </tr>
                     <?php
                 }
