@@ -1,8 +1,6 @@
 <?php
 require_once("util-db.php");
 require_once("model-coaches-players.php");
-include "view-coaches-players-players.php";
-
 
 $pageTitle = "Coaches with Players";
 include "view-header.php";
@@ -13,13 +11,14 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     $coachesPlayers = selectCoachesWithPlayers($coach_id);
 
-    // Check if $coachesPlayers is null or has rows
-    if ($coachesPlayers === null) {
-        echo "Coaches Players result is null!";
-    } elseif ($coachesPlayers->num_rows === 0) {
-        echo "No rows found in Coaches Players result!";
+    if ($coachesPlayers && $coachesPlayers->num_rows > 0) {
+        include "view-coaches-players-players.php"; // Include the view for displaying players
     } else {
-        include "view-players.php";
+        echo "<p>No players found for this coach.</p>";
     }
-} else
+} else {
+    echo "<p>Invalid coach ID.</p>";
+}
+
+include "view-footer.php";
 ?>
