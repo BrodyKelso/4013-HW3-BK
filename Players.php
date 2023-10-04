@@ -9,11 +9,6 @@ include "view-header.php";
 $positionFilter = isset($_POST['filterPosition']) ? $_POST['filterPosition'] : null;
 $allPlayers = selectAllPlayers1($positionFilter); // Modify selectAllPlayers() to accept filter
 
-if ($allPlayers !== null && $allPlayers->num_rows > 0) {
-    include "view-players.php";
-} else {
-    echo "No player data available."; // Display a message when there's no data.
-}
-
+include "view-players.php";
 include "view-footer.php";
 ?>

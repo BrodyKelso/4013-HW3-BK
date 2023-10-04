@@ -11,7 +11,7 @@
 </form>
 
 <?php
-if ($playersData->num_rows > 0) {
+if (isset($allPlayers) && $allPlayers->num_rows > 0) {
     // Display the table only if there are players to show
     ?>
     <div class="table-responsive">
@@ -29,7 +29,7 @@ if ($playersData->num_rows > 0) {
             </thead>
             <tbody>
                 <?php
-                while ($player = $playersData->fetch_assoc()) {
+                while ($player = $allPlayers->fetch_assoc()) {
                     // Check if filterPosition is set and if the player's position matches the filter
                     if (isset($_POST['filterPosition']) && $_POST['filterPosition'] !== "" && $player['position'] !== $_POST['filterPosition']) {
                         continue; // Skip this player if it doesn't match the filter
