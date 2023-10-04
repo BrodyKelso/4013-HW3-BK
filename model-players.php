@@ -3,19 +3,38 @@ require_once("util-db.php");
 
 
 function selectAllPlayers($positionFilter = null) {
-    $conn = new mysqli('159.89.47.44', 'brodypke_hw3user', 'BrodyHomework', 'brodypke_hw3');
-    
-    $sql = "SELECT player_id, first_name, last_name, position, jersey_number, year FROM Players"; 
-    
-    if($positionFilter) {
-        $positionFilter = mysqli_real_escape_string($conn, $positionFilter); 
-        $sql .= " WHERE position = '$positionFilter'";
+    try {
+        $conn = get_db_connection();
+        $sql = "SELECT player_id, first_name, last_name, position, jersey_number, year FROM Players";
+
+        // If a position filter is provided, add it to the SQL query
+        if ($positionFilter) {
+            $sql .= " WHERE position = ?";
+        }
+
+        // Prepare the SQL statement
+        $stmt = $conn->prepare($sql);
+
+        // Bind the parameter if a position filter is provided
+        if ($positionFilter) {
+            $stmt->bind_param("s", $positionFilter);
+        }
+
+        // Execute the query
+        $stmt->execute();
+
+        // Get the result
+        $result = $stmt->get_result();
+
+        // Close the connection
+        $conn->close();
+
+        // Return the result
+        return $result;
+
+    } catch (Exception $e) {
+        // Handle exceptions here
+        return false;
     }
-    
-    $result = mysqli_query($conn, $sql);
-    
-    return $result;
 }
 
-
-?>
