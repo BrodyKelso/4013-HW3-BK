@@ -1,3 +1,10 @@
+<?php
+if (!isset($allPlayers)) {
+    die("Player data is not available.");
+}
+?>
+
+
 <h1>Players</h1>
 <form method="POST" action="Players.php" class="mb-3">
     <label for="filterPosition" class="form-label">Filter by Position</label>
