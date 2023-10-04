@@ -1,16 +1,20 @@
 <?php
 require_once("util-db.php");
 
-function selectCoachesWithPlayers($coach_id){
+function selectCoachesWithPlayers($coach_id) {
     try {
         $conn = get_db_connection();
         
         $stmt = $conn->prepare("SELECT p.* FROM Players p 
-        JOIN Coaches c ON c.coach_id = ?
-        JOIN PositionMapping pm ON c.position = pm.coach_position
-        WHERE p.position = pm.player_position");
-        $stmt->bind_param("i", $coach_id); 
+                                JOIN Coaches c ON c.coach_id = ?
+                                JOIN PositionMapping pm ON c.position = pm.coach_position
+                                WHERE p.position = pm.player_position");
+        $stmt->bind_param("i", $coach_id); // "i" indicates an integer value
         $stmt->execute();
+
+        if ($stmt->error) {
+            throw new Exception("Database error: " . $stmt->error);
+        }
         
         $result = $stmt->get_result();
         $conn->close();
@@ -20,6 +24,7 @@ function selectCoachesWithPlayers($coach_id){
         throw $e;
     }
 }
+
 
 function selectAllPlayers() {
     try {
