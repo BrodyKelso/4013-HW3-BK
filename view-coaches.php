@@ -7,7 +7,6 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Position</th>
-        <!-- ... other columns as per your database structure -->
       </tr>
     </thead> 
     <tbody>
@@ -19,7 +18,6 @@ while ($coach = $coaches->fetch_assoc()) {
         <td><?php echo $coach['first_name']; ?></td>
         <td><?php echo $coach['last_name']; ?></td>
         <td><?php echo $coach['position']; ?></td>
-        <!-- ... other columns as per your database structure -->
       </tr>
 <?php
 }
