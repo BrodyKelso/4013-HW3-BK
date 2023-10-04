@@ -4,7 +4,7 @@ require_once("util-db.php");
 function selectAllGames() {
     global $dbConnection; // assuming you have a $dbConnection in util-db.php
 
-    $query = "SELECT * FROM Games"; // adjust this SQL according to your table and fields
+    $query = "SELECT game_id, opponent_name, date, location, result, team_id FROM Games"; // adjust this SQL according to your table and fields
     $result = $dbConnection->query($query);
 
     return $result;
