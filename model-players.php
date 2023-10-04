@@ -1,19 +1,19 @@
 <?php
 require_once("util-db.php");
 
-function selectAllPlayers(){
-    try {
-        $conn = get_db_connection();
-        
-        $stmt = $conn->prepare("SELECT * FROM Players");
-        $stmt->execute();
-        
-        $result = $stmt->get_result();
-        $conn->close();
-        return $result;
-    } catch (Exception $e) {
-        $conn->close();
-        throw $e;
+function selectAllPlayers($positionFilter = null) {
+    global $conn; 
+    
+    $sql = "SELECT * FROM players"; 
+    
+    if($positionFilter) {
+        $positionFilter = mysqli_real_escape_string($conn, $positionFilter); 
+        $sql .= " WHERE position = '$positionFilter'";
     }
+    
+    $result = mysqli_query($conn, $sql);
+    
+    return $result;
 }
+
 ?>

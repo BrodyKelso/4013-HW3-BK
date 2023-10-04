@@ -2,6 +2,16 @@
 function display_players($playersData) {
 ?>
 <h1>Players</h1>
+<form method="POST" action="Players.php" class="mb-3">
+    <label for="filterPosition" class="form-label">Filter by Position</label>
+    <select name="filterPosition" id="filterPosition" class="form-select" onchange="this.form.submit()">
+        <option value="">--Select Position--</option>
+        <option value="QB">Quarterback</option>
+        <option value="RB">Running Back</option>
+        <option value="WR">Wide Receiver</option>
+        <!-- Add other positions as per your data -->
+    </select>
+</form>
 <div class="table-responsive">
   <table class="table">
     <thead>
@@ -36,4 +46,3 @@ while ($player = $playersData->fetch_assoc()) {
 </div>
 <?php
 }
-?>
