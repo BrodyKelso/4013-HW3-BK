@@ -1,6 +1,8 @@
 <?php
 require_once("util-db.php");
 require_once("model-coaches-players.php");
+include "view-coaches-players-players.php";
+
 
 $pageTitle = "Coaches with Players";
 include "view-header.php";
