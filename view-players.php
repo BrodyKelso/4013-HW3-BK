@@ -14,7 +14,8 @@
     </thead> 
     <tbody>
 <?php
-while ($player = $players->fetch_assoc()) {
+// Updated variable name from $players to $coachesPlayers
+while ($player = $coachesPlayers->fetch_assoc()) {
 ?>
       <tr>
         <td><?php echo $player['player_id']; ?></td>
