@@ -5,7 +5,7 @@ require_once("util-db.php");
 function selectAllPlayers1($positionFilter = null) {
     try {
         $conn = get_db_connection();
-        $sql = "SELECT player_id, first_name, last_name, position, jersey_number, year FROM Players";
+        $sql = "SELECT player_id, first_name, last_name, position, jersey_number, year, team_id FROM Players";
 
         // If a position filter is provided, add it to the SQL query
         if ($positionFilter) {
