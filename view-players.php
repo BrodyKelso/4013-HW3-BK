@@ -1,6 +1,3 @@
-<?php
-function display_players($playersData) {
-?>
 <h1>Players</h1>
 <form method="POST" action="Players.php" class="mb-3">
     <label for="filterPosition" class="form-label">Filter by Position</label>
@@ -28,6 +25,10 @@ function display_players($playersData) {
     <tbody>
 <?php
 while ($player = $playersData->fetch_assoc()) {
+    // Check if filterPosition is set and if the player's position matches the filter
+    if (isset($_POST['filterPosition']) && $_POST['filterPosition'] !== "" && $player['position'] !== $_POST['filterPosition']) {
+        continue; // Skip this player if it doesn't match the filter
+    }
 ?>
       <tr>
         <td><?php echo $player['player_id']; ?></td>
@@ -44,5 +45,3 @@ while ($player = $playersData->fetch_assoc()) {
     </tbody>
   </table>
 </div>
-<?php
-}
