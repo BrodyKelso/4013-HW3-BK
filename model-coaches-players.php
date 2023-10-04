@@ -5,9 +5,10 @@ function selectCoachesWithPlayers($coach_id){
     try {
         $conn = get_db_connection();
         
-        $stmt = $conn->prepare("SELECT p.player_id, p.first_name, p.last_name, p.position, p.jersey_number, p.year
-        FROM Players p
-        WHERE p.team_id = (SELECT team_id FROM Coaches WHERE coach_id = ?)");
+        $stmt = $conn->prepare("SELECT p.* FROM Players p 
+        JOIN Coaches c ON c.coach_id = ?
+        JOIN PositionMapping pm ON c.position = pm.coach_position
+        WHERE p.position = pm.player_position");
         $stmt->bind_param("i", $coach_id); 
         $stmt->execute();
         
@@ -37,9 +38,10 @@ function selectAllPlayers() {
 function selectPlayersByCoachPosition($coach_position) {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("SELECT p.player_id, p.first_name, p.last_name, p.position, p.jersey_number, p.year
-        FROM Players p
-        WHERE p.team_id = (SELECT team_id FROM Coaches WHERE coach_id = ?)");
+        $stmt = $conn->prepare("SELECT p.* FROM Players p
+        JOIN PositionMapping pm ON pm.player_position = p.position
+        WHERE pm.coach_position = ?");
+
         $stmt->bind_param("s", $coach_position);
         $stmt->execute();
         $result = $stmt->get_result();
