@@ -8,7 +8,7 @@ include "view-header.php";
 
 // Handle the filter here
 $positionFilter = isset($_POST['filterPosition']) ? $_POST['filterPosition'] : null;
-$allPlayers = selectAllPlayers($positionFilter);
+$allPlayers = selectAllPlayers1($positionFilter);
 
 include "view-players.php";
 include "view-footer.php";
