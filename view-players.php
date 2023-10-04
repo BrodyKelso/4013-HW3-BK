@@ -1,4 +1,5 @@
 <?php
+require_once("view-players.php");
 function display_players($playersData) {
 ?>
 <h1>Players</h1>
