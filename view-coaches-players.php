@@ -10,23 +10,22 @@
         <th>Jersey Number</th>
         <th>Year</th>
       </tr>
-    </thead> 
+    </thead>
     <tbody>
-<?php
-while ($player = $coachesPlayers->fetch_assoc()) {
-?>
-      <tr>
-        <td><?php echo $player['player_id']; ?></td>
-        <td><?php echo $player['first_name']; ?></td>
-        <td><?php echo $player['last_name']; ?></td>
-        <td><?php echo $player['position']; ?></td>
-        <td><?php echo $player['jersey_number']; ?></td>
-        <td><?php echo $player['year']; ?></td>
-      </tr>
-<?php
-}
-?>
+      <?php
+      while ($player = $coachesPlayers->fetch_assoc()) {
+      ?>
+        <tr>
+          <td><?php echo $player['player_id']; ?></td>
+          <td><?php echo $player['first_name']; ?></td>
+          <td><?php echo $player['last_name']; ?></td>
+          <td><?php echo $player['position']; ?></td>
+          <td><?php echo $player['jersey_number']; ?></td>
+          <td><?php echo $player['year']; ?></td>
+        </tr>
+      <?php
+      }
+      ?>
     </tbody>
   </table>
 </div>
-
