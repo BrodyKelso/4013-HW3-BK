@@ -1,15 +1,15 @@
 <?php
 require_once("util-db.php");
 require_once("model-players.php");
+require_once("view-players.php");
 
 $pageTitle = "Players";
 include "view-header.php";
 
 $allPlayers = selectAllPlayers();
 
-// Check if data was fetched
 if($allPlayers && $allPlayers->num_rows > 0) {
-    include "view-players.php";
+    display_players($allPlayers);
 } else {
     echo "<p>No players found.</p>";
 }

@@ -1,3 +1,6 @@
+<?php
+function display_players($playersData) {
+?>
 <h1>Players</h1>
 <div class="table-responsive">
   <table class="table">
@@ -14,8 +17,7 @@
     </thead> 
     <tbody>
 <?php
-// Updated variable name from $players to $coachesPlayers
-while ($player = $allPlayers->fetch_assoc()) {
+while ($player = $playersData->fetch_assoc()) {
 ?>
       <tr>
         <td><?php echo $player['player_id']; ?></td>
@@ -32,3 +34,6 @@ while ($player = $allPlayers->fetch_assoc()) {
     </tbody>
   </table>
 </div>
+<?php
+}
+?>
