@@ -2,11 +2,31 @@
 require_once("util-db.php");
 
 function selectAllGames() {
-    global $dbConnection; // assuming you have a $dbConnection in util-db.php
+    try {
+        // Get database connection
+        $conn = get_db_connection();
+        
+        // Prepare and execute the SQL statement
+        $stmt = $conn->prepare("SELECT game_id, opponent_name, date, location, result, team_id FROM Games");
+        $stmt->execute();
+        
+        // Get the result
+        $result = $stmt->get_result();
+        
+        // Close the connection
+        $conn->close();
+        
+        // Return the result
+        return $result;
 
-    $query = "SELECT game_id, opponent_name, date, location, result, team_id FROM Games"; // adjust this SQL according to your table and fields
-    $result = $dbConnection->query($query);
+    } catch (Exception $e) {
+        // Ensure connection is closed even if an exception is thrown
+        if ($conn) {
+            $conn->close();
+        }
 
-    return $result;
+        // Re-throw exception to be handled upstream
+        throw $e;
+    }
 }
 ?>
