@@ -24,7 +24,7 @@ if (isset($allPlayers) && $allPlayers->num_rows > 0) {
                     <th>Position</th>
                     <th>Jersey Number</th>
                     <th>Year</th>
-                    <th>Team ID</th>
+                    <!-- Removed "Team ID" header -->
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +42,7 @@ if (isset($allPlayers) && $allPlayers->num_rows > 0) {
                         <td><?php echo $player['position']; ?></td>
                         <td><?php echo $player['jersey_number']; ?></td>
                         <td><?php echo $player['year']; ?></td>
-                        <td><?php echo $player['team_id']; ?></td>
+                        <!-- Removed displaying "Team ID" -->
                     </tr>
                     <?php
                 }
