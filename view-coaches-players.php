@@ -1,23 +1,27 @@
-<h1>Players Coached by [Coach Name]</h1>
+<h1>Players Coached</h1>
 <div class="table-responsive">
   <table class="table">
     <thead>
       <tr>
-        <th>Coach First Name</th>
-        <th>Coach Last Name</th>
-        <th>Player First Name</th>
-        <th>Player Last Name</th>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Position</th>
+        <th>Jersey Number</th>
+        <th>Year</th>
       </tr>
     </thead> 
     <tbody>
 <?php
-while ($coachPlayer = $coachesPlayers->fetch_assoc()) {
+while ($player = $coachesPlayers->fetch_assoc()) {
 ?>
       <tr>
-        <td><?php echo $coachPlayer['coach_first_name']; ?></td>
-        <td><?php echo $coachPlayer['coach_last_name']; ?></td>
-        <td><?php echo $coachPlayer['player_first_name']; ?></td>
-        <td><?php echo $coachPlayer['player_last_name']; ?></td>
+        <td><?php echo $player['player_id']; ?></td>
+        <td><?php echo $player['first_name']; ?></td>
+        <td><?php echo $player['last_name']; ?></td>
+        <td><?php echo $player['position']; ?></td>
+        <td><?php echo $player['jersey_number']; ?></td>
+        <td><?php echo $player['year']; ?></td>
       </tr>
 <?php
 }
@@ -25,3 +29,4 @@ while ($coachPlayer = $coachesPlayers->fetch_assoc()) {
     </tbody>
   </table>
 </div>
+
