@@ -9,12 +9,23 @@ include "view-header.php";
 
 $allPlayers = selectAllPlayers();
 
-$coachesPlayers = selectCoachesWithPlayers($_GET['id']); // Call the selectCoachesWithPlayers function
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $coach_id = $_GET['id'];
+    $coach_position = getCoachPosition($coach_id);
 
-if ($allPlayers && $allPlayers->num_rows > 0) {
-    display_players($allPlayers);
+    if ($coach_position !== null) {
+        $coachedPlayers = selectPlayersByCoachPosition($coach_position);
+
+        if ($coachedPlayers && $coachedPlayers->num_rows > 0) {
+            display_players($coachedPlayers);
+        } else {
+            echo "<p>No players found for this coach.</p>";
+        }
+    } else {
+        echo "<p>Invalid coach ID or coach position not specified.</p>";
+    }
 } else {
-    echo "<p>No players found.</p>";
+    echo "<p>Invalid coach ID.</p>";
 }
 
 include "view-footer.php";

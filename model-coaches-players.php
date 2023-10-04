@@ -51,4 +51,28 @@ function selectPlayersByCoachPosition($coach_position) {
         throw $e;
     }
 }
+
+function getCoachPosition($coach_id) {
+    try {
+        $conn = get_db_connection();
+        $stmt = $conn->prepare("SELECT position FROM Coaches WHERE coach_id = ?");
+        $stmt->bind_param("i", $coach_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $position = $row['position'];
+            $conn->close();
+            return $position;
+        } else {
+            $conn->close();
+            return null; // Coach not found or position not specified
+        }
+    } catch (Exception $e) {
+        $conn->close();
+        throw $e;
+    }
+}
+
 ?>
