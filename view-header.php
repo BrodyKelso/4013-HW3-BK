@@ -27,6 +27,9 @@
         </li>
             <li class="nav-item">
           <a class="nav-link" href="Coaches-with-Players.php">Teams with Coaches</a>
+        <li class="nav-item>
+          <a class="nav-link" href="Players.php">Players</a>
+      </li>
       </ul>
     </div>
   </div>
