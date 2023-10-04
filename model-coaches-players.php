@@ -38,7 +38,7 @@ function selectAllPlayers() {
 function selectPlayersByCoachPosition($coach_position) {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("SELECT p.* FROM Players p
+        $stmt = $conn->prepare("SELECT p.player_id, p.first_name, p.last_name, p.position, p.jersey_number, p.year FROM Players p
                                 JOIN PositionMapping pm ON pm.player_position = p.position
                                 WHERE pm.coach_position = ?");
         $stmt->bind_param("s", $coach_position);
@@ -51,6 +51,7 @@ function selectPlayersByCoachPosition($coach_position) {
         throw $e;
     }
 }
+
 
 function getCoachPosition($coach_id) {
     try {
