@@ -11,7 +11,7 @@
 </form>
 
 <?php
-if (isset($allPlayers) && $allPlayers->num_rows > 0) {
+if ($playersData->num_rows > 0) {
     // Display the table only if there are players to show
     ?>
     <div class="table-responsive">
@@ -24,12 +24,11 @@ if (isset($allPlayers) && $allPlayers->num_rows > 0) {
                     <th>Position</th>
                     <th>Jersey Number</th>
                     <th>Year</th>
-                    <th>Team ID</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                while ($player = $allPlayers->fetch_assoc()) {
+                while ($player = $playersData->fetch_assoc()) {
                     // Check if filterPosition is set and if the player's position matches the filter
                     if (isset($_POST['filterPosition']) && $_POST['filterPosition'] !== "" && $player['position'] !== $_POST['filterPosition']) {
                         continue; // Skip this player if it doesn't match the filter
@@ -42,7 +41,6 @@ if (isset($allPlayers) && $allPlayers->num_rows > 0) {
                         <td><?php echo $player['position']; ?></td>
                         <td><?php echo $player['jersey_number']; ?></td>
                         <td><?php echo $player['year']; ?></td>
-                        <td><?php echo $player['team_id']; ?></td>
                     </tr>
                     <?php
                 }
