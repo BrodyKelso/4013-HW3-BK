@@ -16,7 +16,7 @@ function selectTeams() {
 function insertTeams($team_name, $season_year, $win, $loss) {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("INSERT INTO `Teams` (`team_name`, `season_year`, `win`, `loss`) VALUES ('?', '?', '?', '?');");
+        $stmt = $conn->prepare("INSERT INTO `Teams` (`team_name`, `season_year`, `win`, `loss`) VALUES (?, ?, ?, ?);");
         $stmt->bind_param("ssss", $team_name, $season_year, $win, $loss);
         $success = $stmt->execute();
         $conn->close();
