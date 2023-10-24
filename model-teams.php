@@ -31,7 +31,7 @@ function updateTeams($team_name, $season_year, $win, $loss, $team_id) {
     try {
         $conn = get_db_connection();
         $stmt = $conn->prepare("UPDATE `Teams` SET `team_name` = ?, `season_year` = ?, `win` = ?, `loss` = ? WHERE `team_id` = ?;");
-        $stmt->bind_param("ssssi", $team_name, $season_year, $win, $loss, $team_id);
+        $stmt->bind_param("siisi", $team_name, $season_year, $win, $loss, $team_id);
         $success = $stmt->execute();
         $conn->close();
         return $success;
