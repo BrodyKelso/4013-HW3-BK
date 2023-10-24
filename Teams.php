@@ -12,15 +12,38 @@ if (isset($_POST['actionType']))
         case "Add":
             if (insertTeams($_POST['tName'], $_POST['tSeasonYear'], $_POST['tWins'], $_POST['tLosses']))
             {
-                echo '<div class="alert alert-success" role="alert">Team added.</div>"';
+                echo '<div class="alert alert-success" role="alert">Team added.</div>';
             }
             else
             {
                 echo '<div class="alert alert-danger" role="alert">Team not added.</div>';
             }
             break;
-    }
 
+        case "Edit":
+          
+            if (updateTeams($_POST['team_id'], $_POST['tName'], $_POST['tSeasonYear'], $_POST['tWins'], $_POST['tLosses']))
+            {
+                echo '<div class="alert alert-success" role="alert">Team updated.</div>';
+            }
+            else
+            {
+                echo '<div class="alert alert-danger" role="alert">Team not updated.</div>';
+            }
+            break;
+
+        case "Delete":
+           
+            if (deleteTeams($_POST['team_id']))
+            {
+                echo '<div class="alert alert-success" role="alert">Team deleted.</div>';
+            }
+            else
+            {
+                echo '<div class="alert alert-danger" role="alert">Team not deleted.</div>';
+            }
+            break;
+    }
 }
 
 $teams = selectTeams();
