@@ -16,7 +16,7 @@ if (isset($_POST['actionType']))
             }
             else
             {
-                echo '<div class="alert alert-danger" role="alert">Team not added.</div>"';
+                echo '<div class="alert alert-danger" role="alert">Team not added.</div>';
             }
             break;
     }
