@@ -18,20 +18,20 @@
       <div class="modal-body">
       <form method="post" action="">
           <div class="mb-3">
-            <label for="cFirstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="cFirstName" name="cFirstName">
+            <label for="cfirst_name" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="cfirst_name" name="cFirstName">
           </div>
           <div class="mb-3">
-            <label for="cLastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="cLastName" name="cLastName">
+            <label for="clast_name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="clast_name" name="cLastName">
           </div>
           <div class="mb-3">
-            <label for="cPosition" class="form-label">Position</label>
-            <input type="text" class="form-control" id="cPosition" name="cPosition">
+            <label for="cposition" class="form-label">Position</label>
+            <input type="text" class="form-control" id="cposition" name="cPosition">
           </div>
           <div class="mb-3">
-            <label for="cTeamId" class="form-label">Team ID</label>
-            <input type="number" class="form-control" id="cTeamId" name="cTeamId">
+            <label for="cteam_id" class="form-label">Team ID</label>
+            <input type="number" class="form-control" id="cteam_id" name="cTeamId">
           </div>
           <input type="hidden" name="actionType" value="Add">
           <button type="submit" class="btn btn-primary">Submit</button>
