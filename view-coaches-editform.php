@@ -18,20 +18,20 @@
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="mb-3">
-                        <label for="cFirstName-<?php echo $coach['coach_id']; ?>" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="cFirstName-<?php echo $coach['coach_id']; ?>" name="cFirstName" value="<?php echo htmlspecialchars($coach['first_name']); ?>">
+                        <label for="cfirst_name-<?php echo $coach['coach_id']; ?>" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="cfirst_name-<?php echo $coach['coach_id']; ?>" name="cFirstName" value="<?php echo htmlspecialchars($coach['first_name']); ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="cLastName-<?php echo $coach['coach_id']; ?>" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="cLastName-<?php echo $coach['coach_id']; ?>" name="cLastName" value="<?php echo htmlspecialchars($coach['last_name']); ?>">
+                        <label for="clast_name-<?php echo $coach['coach_id']; ?>" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="slast_name-<?php echo $coach['coach_id']; ?>" name="cLastName" value="<?php echo htmlspecialchars($coach['last_name']); ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="cPosition-<?php echo $coach['coach_id']; ?>" class="form-label">Position</label>
-                        <input type="text" class="form-control" id="cPosition-<?php echo $coach['coach_id']; ?>" name="cPosition" value="<?php echo htmlspecialchars($coach['position']); ?>">
+                        <label for="cposition-<?php echo $coach['coach_id']; ?>" class="form-label">Position</label>
+                        <input type="text" class="form-control" id="cposition-<?php echo $coach['coach_id']; ?>" name="cPosition" value="<?php echo htmlspecialchars($coach['position']); ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="cTeamId-<?php echo $coach['coach_id']; ?>" class="form-label">Team ID</label>
-                        <input type="number" class="form-control" id="cTeamId-<?php echo $coach['coach_id']; ?>" name="cTeamId" value="<?php echo htmlspecialchars($coach['team_id']); ?>">
+                        <label for="cteam_id-<?php echo $coach['coach_id']; ?>" class="form-label">Team ID</label>
+                        <input type="number" class="form-control" id="cteam_id-<?php echo $coach['coach_id']; ?>" name="cTeamId" value="<?php echo htmlspecialchars($coach['team_id']); ?>">
                     </div>
                     <input type="hidden" name="coach_id" value="<?php echo htmlspecialchars($coach['coach_id']); ?>">
                     <input type="hidden" name="actionType" value="Edit">
