@@ -31,7 +31,7 @@
             <label for="tLosses<?php echo $team['team_id']; ?>" class="form-label">Losses</label>
             <input type="text" class="form-control" id="tLosses<?php echo $team['team_id']; ?>" name="tLosses" value="<?php echo $team['loss']; ?>">
           </div>
-          <input type="hidden"  name="tid" value="<?php echo $team['team_id']; ?>">
+          <input type="hidden"  name="team_id" value="<?php echo $team['team_id']; ?>">
           <input type="hidden" name="actionType" value="Edit">
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
