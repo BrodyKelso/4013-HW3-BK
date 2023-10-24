@@ -30,7 +30,7 @@ function insertTeams($team_name, $season_year, $win, $loss) {
 function updateTeams($team_name, $season_year, $win, $loss, $team_id) {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("UPDATE `Teams` set (`team_name` = ?, `season_year` = ?, `win` = ?, `loss` = ?) WHERE `team_id` = ?;");
+        $stmt = $conn->prepare("UPDATE `Teams` SET `team_name` = ?, `season_year` = ?, `win` = ?, `loss` = ? WHERE `team_id` = ?;");
         $stmt->bind_param("ssssi", $team_name, $season_year, $win, $loss, $team_id);
         $success = $stmt->execute();
         $conn->close();
@@ -40,6 +40,7 @@ function updateTeams($team_name, $season_year, $win, $loss, $team_id) {
         throw $e;
     }
 }
+
 
 function deleteTeams($team_id) {
     try {
