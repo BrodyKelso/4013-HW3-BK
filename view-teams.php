@@ -17,6 +17,8 @@ include "view-teams-newform.php";
         <th>SeasonYear</th>
         <th>Wins</th>
         <th>Losses</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead> 
     <tbody>
@@ -29,6 +31,11 @@ while ($team = $teams->fetch_assoc()) {
         <td><?php echo $team['season_year']; ?></td>
         <td><?php echo $team['win']; ?></td>  
         <td><?php echo $team['loss']; ?></td>  
+        <td>
+        </td>
+        <td>
+        </td>
+
       </tr>
 <?php
 }
