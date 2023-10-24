@@ -32,14 +32,11 @@
                     <td><?php echo $team['season_year']; ?></td>
                     <td><?php echo $team['win']; ?></td>
                     <td><?php echo $team['loss']; ?></td>
+                    
                     <td>
-                        <!-- Edit action -->
-                        <form method="post">
-                            <input type="hidden" name="actionType" value="Edit">
-                            <input type="hidden" name="team_id" value="<?php echo $team['team_id']; ?>">
-                            <button type="submit" class="btn btn-warning">Edit</button>
-                        </form>
+                        <?php include "view-teams-editform.php"; ?>
                     </td>
+                    
                     <td>
                         <!-- Delete action -->
                         <form method="post">
