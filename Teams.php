@@ -22,7 +22,8 @@ if (isset($_POST['actionType']))
 
         case "Edit":
           
-            if (updateTeams($_POST['team_id'], $_POST['tName'], $_POST['tSeasonYear'], $_POST['tWins'], $_POST['tLosses']))
+            if if (updateTeams($_POST['tName'], $_POST['tSeasonYear'], $_POST['tWins'], $_POST['tLosses'], $_POST['tid']))
+
             {
                 echo '<div class="alert alert-success" role="alert">Team updated.</div>';
             }
