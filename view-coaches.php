@@ -30,7 +30,8 @@
             <td><?php echo isset($coach['coach_id']) ? $coach['coach_id'] : 'N/A'; ?></td>
             <td><?php echo isset($coach['first_name']) ? $coach['first_name'] : 'N/A'; ?></td>
             <td><?php echo isset($coach['last_name']) ? $coach['last_name'] : 'N/A'; ?></td>
-            <td><?php echo isset($coach['team_id']) ? $coach['team_id'] : 'N/A'; ?></td> <!-- Here's the line -->
+            <td><?php echo isset($coach['position']) ? $coach['position'] : 'N/A'; ?></td> <!-- Fixed the position display -->
+            <td><?php echo isset($coach['team_id']) ? $coach['team_id'] : 'N/A'; ?></td>
             <td>
                 <?php include "view-coaches-editform.php"; ?>
             </td>
