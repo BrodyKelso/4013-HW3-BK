@@ -10,7 +10,14 @@ if (isset($_POST['actionType']))
     switch ($_POST['actionType'])
     {
         case "Add":
-            insertTeams($_POST['tName'], $_POST['tSeasonYear'], $_POST['tWins'], $_POST['tLosses']);
+            if (insertTeams($_POST['tName'], $_POST['tSeasonYear'], $_POST['tWins'], $_POST['tLosses']))
+            {
+                echo '<div class="alert alert-success" role="alert">Team added.</div>"';
+            }
+            else
+            {
+                echo '<div class="alert alert-danger" role="alert">Team not added.</div>"';
+            }
             break;
     }
 
