@@ -4,6 +4,46 @@ require_once("model-coaches.php");
 
 $pageTitle = "Coaches";
 include "view-header.php";
+
+if (isset($_POST['actionType']))
+{
+    switch ($_POST['actionType'])
+    {
+        case "Add":
+            if (insertCoach($_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['team_id']))
+            {
+                echo '<div class="alert alert-success" role="alert">Coach added.</div>';
+            }
+            else
+            {
+                echo '<div class="alert alert-danger" role="alert">Coach not added.</div>';
+            }
+            break;
+
+        case "Edit":
+            if (updateCoach($_POST['coach_id'], $_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['team_id']))
+            {
+                echo '<div class="alert alert-success" role="alert">Coach updated.</div>';
+            }
+            else
+            {
+                echo '<div class="alert alert-danger" role="alert">Coach not updated.</div>';
+            }
+            break;
+
+        case "Delete":
+            if (deleteCoach($_POST['coach_id']))
+            {
+                echo '<div class="alert alert-success" role="alert">Coach deleted.</div>';
+            }
+            else
+            {
+                echo '<div class="alert alert-danger" role="alert">Coach not deleted.</div>';
+            }
+            break;
+    }
+}
+
 $coaches = selectCoaches();
 include "view-coaches.php";
 include "view-footer.php";
