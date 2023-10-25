@@ -45,6 +45,6 @@ if (isset($_POST['actionType']))
 }
 
 $players = selectPlayers();
-include "view-NewPlayers.php";
+include "view-newplayers.php";
 include "view-footer.php";
 ?>
