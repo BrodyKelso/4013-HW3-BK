@@ -27,11 +27,11 @@
             while ($coach = $coaches->fetch_assoc()) {
                 ?>
                 <tr>
-                    <td><?= $coach['coach_id'] ?? ''; ?></td>
-                    <td><?= $coach['first_name'] ?? ''; ?></td>
-                    <td><?= $coach['last_name'] ?? ''; ?></td>
-                    <td><?= $coach['position'] ?? ''; ?></td>
-                    <td><?= $coach['team_id'] ?? ''; ?></td>
+                    <td><?= $coach['coach_id']; ?></td>
+                    <td><?= $coach['first_name']; ?></td>
+                    <td><?= $coach['last_name']; ?></td>
+                    <td><?= $coach['position']; ?></td>
+                    <td><?= $coach['team_id']; ?></td>
                     <td>
                         <?php include "view-coaches-editform.php"; ?>
                     </td>

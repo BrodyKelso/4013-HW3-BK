@@ -30,8 +30,8 @@ function insertCoach($coach_id, $first_name, $last_name, $position, $team_id) {
 function updateCoach($coach_id, $first_name, $last_name, $position, $team_id) {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("UPDATE Coaches SET first_name = ?, last_name = ?, position = ?, team_id = ? WHERE coach_id = ?");
-        $stmt->bind_param("sssii", $first_name, $last_name, $position, $team_id, $coach_id);
+        $stmt = $conn->prepare("UPDATE Coaches SET coach_id=?, first_name=?, last_name=?, position=?, team_id=? WHERE coach_id=?");
+        $stmt->bind_param("isssii", $coach_id, $first_name, $last_name, $position, $team_id, $coach_id);
         $success = $stmt->execute();
         $conn->close();
         return $success;
@@ -40,6 +40,7 @@ function updateCoach($coach_id, $first_name, $last_name, $position, $team_id) {
         throw $e;
     }
 }
+
 
 function deleteCoach($coach_id) {
     try {
