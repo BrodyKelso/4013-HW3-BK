@@ -10,41 +10,41 @@ if (isset($_POST['actionType']))
     switch ($_POST['actionType'])
     {
         case "Add":
-            if (insertPlayer($_POST['player_id'], $_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['jersey_number'], $_POST['year'], $_POST['team_id']))
+            if (insertPlayer($_POST['player_id'],$_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['jersey_number'], $_POST['year'], $_POST['team_id']))
             {
-                echo '<div class="alert alert-success" role="alert">Player added successfully.</div>';
+                echo '<div class="alert alert-success" role="alert">Player added.</div>';
             }
             else
             {
-                echo '<div class="alert alert-danger" role="alert">Failed to add player.</div>';
+                echo '<div class="alert alert-danger" role="alert">Player not added.</div>';
             }
             break;
 
         case "Edit":
-            if (updatePlayer($_POST['player_id'], $_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['jersey_number'], $_POST['year'], $_POST['team_id']))
+            if (updatePlayer($_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['jersey_number'], $_POST['year'], $_POST['team_id'], $_POST['player_id']))
             {
-                echo '<div class="alert alert-success" role="alert">Player updated successfully.</div>';
+                echo '<div class="alert alert-success" role="alert">Player updated.</div>';
             }
             else
             {
-                echo '<div class="alert alert-danger" role="alert">Failed to update player.</div>';
+                echo '<div class="alert alert-danger" role="alert">Player not updated.</div>';
             }
             break;
 
         case "Delete":
             if (deletePlayer($_POST['player_id']))
             {
-                echo '<div class="alert alert-success" role="alert">Player deleted successfully.</div>';
+                echo '<div class="alert alert-success" role="alert">Player deleted.</div>';
             }
             else
             {
-                echo '<div class="alert alert-danger" role="alert">Failed to delete player.</div>';
+                echo '<div class="alert alert-danger" role="alert">Player not deleted.</div>';
             }
             break;
     }
 }
 
-$allPlayers = selectAllPlayer();
+$players = selectPlayers();
 include "view-players.php";
 include "view-footer.php";
 ?>
