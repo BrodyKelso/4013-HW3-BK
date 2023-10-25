@@ -1,14 +1,4 @@
 <h1>Players</h1>
-<form method="POST" action="Players.php" class="mb-3">
-    <label for="filterPosition" class="form-label">Filter by Position</label>
-    <select name="filterPosition" id="filterPosition" class="form-select" onchange="this.form.submit()">
-        <option value="">--Select Position--</option>
-        <option value="QB">Quarterback</option>
-        <option value="RB">Running Back</option>
-        <option value="WR">Wide Receiver</option>
-        <!-- Add other positions as per your data -->
-    </select>
-</form>
 
 <?php
 if (isset($allPlayers) && $allPlayers->num_rows > 0) {
@@ -30,10 +20,6 @@ if (isset($allPlayers) && $allPlayers->num_rows > 0) {
             <tbody>
                 <?php
                 while ($player = $allPlayers->fetch_assoc()) {
-                    // Check if filterPosition is set and if the player's position matches the filter
-                    if (isset($_POST['filterPosition']) && $_POST['filterPosition'] !== "" && $player['position'] !== $_POST['filterPosition']) {
-                        continue; // Skip this player if it doesn't match the filter
-                    }
                     ?>
                     <tr>
                         <td><?php echo $player['player_id']; ?></td>
