@@ -26,31 +26,39 @@
         </thead>
         <tbody>
             <?php
-            while ($player = $players->fetch_assoc()) {
-            ?>
+            if($players) {
+                while ($player = $players->fetch_assoc()) {
+                ?>
+                    <tr>
+                        <td><?php echo $player['player_id']; ?></td>
+                        <td><?php echo $player['first_name']; ?></td>
+                        <td><?php echo $player['last_name']; ?></td>
+                        <td><?php echo $player['position']; ?></td>
+                        <td><?php echo $player['jersey_number']; ?></td>
+                        <td><?php echo $player['year']; ?></td>
+                        <td><?php echo $player['team_id']; ?></td>
+                        
+                        <td>
+                            <?php include "view-newplayers-editform.php"; ?>
+                        </td>
+                        
+                        <td>
+                            <!-- Delete action -->
+                            <form method="post">
+                                <input type="hidden" name="actionType" value="Delete">
+                                <input type="hidden" name="player_id" value="<?php echo $player['player_id']; ?>">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php
+                }
+            } else {
+                ?>
                 <tr>
-                    <td><?php echo $player['player_id']; ?></td>
-                    <td><?php echo $player['first_name']; ?></td>
-                    <td><?php echo $player['last_name']; ?></td>
-                    <td><?php echo $player['position']; ?></td>
-                    <td><?php echo $player['jersey_number']; ?></td>
-                    <td><?php echo $player['year']; ?></td>
-                    <td><?php echo $player['team_id']; ?></td>
-                    
-                    <td>
-                        <?php include "view-newplayers-editform.php"; ?>
-                    </td>
-                    
-                    <td>
-                        <!-- Delete action -->
-                        <form method="post">
-                            <input type="hidden" name="actionType" value="Delete">
-                            <input type="hidden" name="player_id" value="<?php echo $player['player_id']; ?>">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
+                    <td colspan="9">No player data available.</td>
                 </tr>
-            <?php
+                <?php
             }
             ?>
         </tbody>
