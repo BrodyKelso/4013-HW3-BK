@@ -19,23 +19,23 @@
                 <form method="post" action="">
                     <div class="mb-3">
                         <label for="ccoach_id" class="form-label">Coach ID</label>
-                        <input type="number" class="form-control" id="ccoach_id" name="cCoachId">
+                        <input type="number" class="form-control" id="ccoach_id" name="ccoach_id">
                     </div>
                     <div class="mb-3">
                         <label for="cfirst_name" class="form-label">First Name</label>
-                        <input type="text" class="form-control" id="cfirst_name" name="cFirstName">
+                        <input type="text" class="form-control" id="cfirst_name" name="cfirst_name">
                     </div>
                     <div class="mb-3">
                         <label for="clast_name" class="form-label">Last Name</label>
-                        <input type="text" class="form-control" id="clast_name" name="cLastName">
+                        <input type="text" class="form-control" id="clast_name" name="clast_name">
                     </div>
                     <div class="mb-3">
                         <label for="cposition" class="form-label">Position</label>
-                        <input type="text" class="form-control" id="cposition" name="cPosition">
+                        <input type="text" class="form-control" id="cposition" name="cposition">
                     </div>
                     <div class="mb-3">
                         <label for="cteam_id" class="form-label">Team ID</label>
-                        <input type="number" class="form-control" id="cteam_id" name="cTeamId">
+                        <input type="number" class="form-control" id="cteam_id" name="cteam_id">
                     </div>
                     <input type="hidden" name="actionType" value="Add">
                     <button type="submit" class="btn btn-primary">Submit</button>
