@@ -4,7 +4,7 @@ require_once("util-db.php");
 function selectGame() {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("SELECT game_id, opponent_name, DATE_FORMAT(date, '%Y-%m-%d') as formatted_date, location, result, team_id FROM Games");
+        $stmt = $conn->prepare("SELECT game_id, opponent_name, date, location, result, team_id FROM Games");
         $stmt->execute();
         $result = $stmt->get_result();
         $conn->close();
@@ -14,7 +14,6 @@ function selectGame() {
         throw $e;
     }
 }
-
 function insertGame($game_id, $opponent_name, $date, $location, $result, $team_id) {
     try {
         $conn = get_db_connection();
