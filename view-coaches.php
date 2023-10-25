@@ -23,31 +23,30 @@
             </tr>
         </thead>
         <tbody>
-    <?php
-    while ($coach = $coaches->fetch_assoc()) {
-    ?>
-        <tr>
-            <td><?php echo isset($coach['coach_id']) ? $coach['coach_id'] : 'N/A'; ?></td>
-            <td><?php echo isset($coach['first_name']) ? $coach['first_name'] : 'N/A'; ?></td>
-            <td><?php echo isset($coach['last_name']) ? $coach['last_name'] : 'N/A'; ?></td>
-            <td><?php echo isset($coach['position']) ? $coach['position'] : 'N/A'; ?></td> <!-- Fixed the position display -->
-            <td><?php echo isset($coach['team_id']) ? $coach['team_id'] : 'N/A'; ?></td>
-            <td>
-                <?php include "view-coaches-editform.php"; ?>
-            </td>
-            <td>
-                <!-- Delete action -->
-                <form method="post">
-                    <input type="hidden" name="actionType" value="Delete">
-                    <input type="hidden" name="coach_id" value="<?php echo isset($coach['coach_id']) ? $coach['coach_id'] : ''; ?>">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-    <?php
-    }
-    ?>
-</tbody>
-
+            <?php
+            while ($coach = $coaches->fetch_assoc()) {
+                ?>
+                <tr>
+                    <td><?= $coach['coach_id'] ?? ''; ?></td>
+                    <td><?= $coach['first_name'] ?? ''; ?></td>
+                    <td><?= $coach['last_name'] ?? ''; ?></td>
+                    <td><?= $coach['position'] ?? ''; ?></td>
+                    <td><?= $coach['team_id'] ?? ''; ?></td>
+                    <td>
+                        <?php include "view-coaches-editform.php"; ?>
+                    </td>
+                    <td>
+                        <!-- Delete action -->
+                        <form method="post">
+                            <input type="hidden" name="actionType" value="Delete">
+                            <input type="hidden" name="coach_id" value="<?= $coach['coach_id'] ?? ''; ?>">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <?php
+            }
+            ?>
+        </tbody>
     </table>
 </div>
