@@ -18,7 +18,7 @@
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="mb-3">
-                        <label for="opponent_name-<?php echo $game['gameid']; ?>" class="form-label">Opponent Name</label>
+                        <label for="opponent_name-<?php echo $game['game_id']; ?>" class="form-label">Opponent Name</label>
                         <input type="text" class="form-control" id="opponent_name-<?php echo $game['game_id']; ?>" name="opponent_name" value="<?php echo htmlspecialchars($game['opponent_name']); ?>">
                     </div>
                     <div class="mb-3">
