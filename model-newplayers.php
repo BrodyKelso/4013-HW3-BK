@@ -14,7 +14,7 @@ function selectPlayers() {
     }
 }
 
-function insertPlayer($first_name, $last_name, $position, $jersey_number, $year, $team_id) {
+function insertPlayer($player_id,$first_name, $last_name, $position, $jersey_number, $year, $team_id) {
     try {
         $conn = get_db_connection();
         $stmt = $conn->prepare("INSERT INTO `Players` (`player_id`,`first_name`, `last_name`, `position`, `jersey_number`, `year`, `team_id`) VALUES (?, ?, ?, ?, ?, ?);");
