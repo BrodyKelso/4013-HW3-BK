@@ -26,7 +26,7 @@
                         <a class="nav-link" href="Coaches.php">Coaches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Players.php">Coaches with Players</a> <!-- Changed here -->
+                        <a class="nav-link" href="Coaches-with-players.php">Coaches with Players</a> <!-- Changed here -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="NewPlayers.php">Players</a>
