@@ -33,7 +33,7 @@ function updatePlayer($first_name, $last_name, $position, $jersey_number, $year,
     try {
         $conn = get_db_connection();
         $stmt = $conn->prepare("UPDATE `Players` SET `first_name` = ?, `last_name` = ?, `position` = ?, `jersey_number` = ?, `year` = ?, `team_id` = ? WHERE `player_id` = ?;");
-        $stmt->bind_param("sssiisi", $first_name, $last_name, $position, $jersey_number, $year, $team_id, $player_id);
+        $stmt->bind_param("sssissi", $first_name, $last_name, $position, $jersey_number, $year, $team_id, $player_id);
         $success = $stmt->execute();
         $conn->close();
         return $success;
