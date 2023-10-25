@@ -36,8 +36,5 @@ if (isset($allPlayers) && $allPlayers->num_rows > 0) {
         </table>
     </div>
     <?php
-} else {
-    // No players to display
-    echo "No player data available.";
-}
+} 
 ?>
