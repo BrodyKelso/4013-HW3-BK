@@ -17,8 +17,10 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="">
-                    <input type="hidden" class="form-control" id="ccoach_id" name="ccoach_id"> <!-- Hidden Coach ID field -->
-                    
+                    <div class="mb-3">
+                        <label for="ccoach_id" class="form-label">Coach ID</label>
+                        <input type="number" class="form-control" id="ccoach_id" name="ccoach_id">
+                    </div>
                     <div class="mb-3">
                         <label for="cfirst_name" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="cfirst_name" name="cfirst_name">
@@ -32,14 +34,8 @@
                         <input type="text" class="form-control" id="cposition" name="cposition">
                     </div>
                     <div class="mb-3">
-                        <label for="cteam_id" class="form-label">Team</label>
-                        <select class="form-control" id="cteam_id" name="cteam_id">
-                            <!-- Sample team options (You should populate this dynamically with PHP from the database) -->
-                            <option value="1">Team A</option>
-                            <option value="2">Team B</option>
-                            <option value="3">Team C</option>
-                            <!-- ... -->
-                        </select>
+                        <label for="cteam_id" class="form-label">Team ID</label>
+                        <input type="number" class="form-control" id="cteam_id" name="cteam_id">
                     </div>
                     <input type="hidden" name="actionType" value="Add">
                     <button type="submit" class="btn btn-primary">Submit</button>
