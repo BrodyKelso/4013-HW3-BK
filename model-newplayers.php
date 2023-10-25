@@ -18,7 +18,7 @@ function insertPlayer($first_name, $last_name, $position, $jersey_number, $year,
     try {
         $conn = get_db_connection();
         $stmt = $conn->prepare("INSERT INTO `Players` (`first_name`, `last_name`, `position`, `jersey_number`, `year`, `team_id`) VALUES (?, ?, ?, ?, ?, ?);");
-        $stmt->bind_param("sssiis", $first_name, $last_name, $position, $jersey_number, $year, $team_id);
+        $stmt->bind_param("sssisi", $first_name, $last_name, $position, $jersey_number, $year, $team_id);
         $success = $stmt->execute();
         $conn->close();
         return $success;
