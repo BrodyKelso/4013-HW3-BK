@@ -7,7 +7,7 @@ $pageTitle = "Players";
 include "view-header.php";
 
 
-$allPlayers = selectAllPlayers1(); // Modify selectAllPlayers() to accept filter
+$allPlayers = selectAllPlayers(); // Modify selectAllPlayers() to accept filter
 
 include "view-players.php";
 include "view-footer.php";

@@ -2,7 +2,7 @@
 require_once("util-db.php");
 
 
-function selectAllPlayers1($positionFilter = null) {
+function selectAllPlayers($positionFilter = null) {
     try {
         $conn = get_db_connection();
         $sql = "SELECT player_id, first_name, last_name, position, jersey_number, year, team_id FROM Players";
