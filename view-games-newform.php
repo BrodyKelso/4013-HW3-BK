@@ -17,8 +17,8 @@
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="mb-3">
-                        <label for="opponentName" class="form-label">Opponent Name</label>
-                        <input type="text" class="form-control" id="opponentName" name="opponentName">
+                        <label for="opponent_name" class="form-label">Opponent Name</label>
+                        <input type="text" class="form-control" id="opponent_name" name="opponent_name">
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>
@@ -33,8 +33,8 @@
                         <input type="text" class="form-control" id="result" name="result">
                     </div>
                     <div class="mb-3">
-                        <label for="teamID" class="form-label">Team ID</label>
-                        <input type="text" class="form-control" id="teamID" name="teamID">
+                        <label for="team_id" class="form-label">Team ID</label>
+                        <input type="text" class="form-control" id="team_id" name="team_id">
                     </div>
                     <input type="hidden" name="actionType" value="Add">
                     <button type="submit" class="btn btn-primary">Submit</button>
