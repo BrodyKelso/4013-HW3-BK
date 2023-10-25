@@ -1,4 +1,3 @@
-<h1>Players</h1>
 
 <?php
 if (isset($allPlayers) && $allPlayers->num_rows > 0) {
