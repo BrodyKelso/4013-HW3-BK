@@ -1,31 +1,58 @@
 <?php
 require_once("util-db.php");
 
-function selectAllGames() {
+function selectGame() {
     try {
-        // Get database connection
         $conn = get_db_connection();
-        
-        // Prepare and execute the SQL statement
         $stmt = $conn->prepare("SELECT game_id, opponent_name, date, location, result, team_id FROM Games");
         $stmt->execute();
-        
-        // Get the result
         $result = $stmt->get_result();
-        
-        // Close the connection
         $conn->close();
-        
-        // Return the result
         return $result;
-
     } catch (Exception $e) {
-        // Ensure connection is closed even if an exception is thrown
-        if ($conn) {
-            $conn->close();
-        }
+        $conn->close();
+        throw $e;
+    }
+}
 
-        // Re-throw exception to be handled upstream
+function insertGame($game_id, $opponent_name, $date, $location, $result, $team_id) {
+    try {
+        $conn = get_db_connection();
+        $stmt = $conn->prepare("INSERT INTO `Games` (`game_id`, `opponent_name`, `date`, `location`, `result`, `team_id`) VALUES (?, ?, ?, ?, ?, ?);");
+        $stmt->bind_param("issssi", $game_id, $opponent_name, $date, $location, $result, $team_id);
+        $success = $stmt->execute();
+        $conn->close();
+        return $success;
+    } catch (Exception $e) {
+        $conn->close();
+        throw $e;
+    }
+}
+
+function updateGame($game_id, $opponent_name, $date, $location, $result, $team_id) {
+    try {
+        $conn = get_db_connection();
+        $stmt = $conn->prepare("UPDATE `Games` SET `opponent_name` = ?, `date` = ?, `location` = ?, `result` = ?, `team_id` = ? WHERE `game_id` = ?;");
+        $stmt->bind_param("sssisi", $opponent_name, $date, $location, $result, $team_id, $game_id);
+        $success = $stmt->execute();
+        $conn->close();
+        return $success;
+    } catch (Exception $e) {
+        $conn->close();
+        throw $e;
+    }
+}
+
+function deleteGame($game_id) {
+    try {
+        $conn = get_db_connection();
+        $stmt = $conn->prepare("DELETE FROM `Games` WHERE `game_id` = ?;");
+        $stmt->bind_param("i", $game_id);
+        $success = $stmt->execute();
+        $conn->close();
+        return $success;
+    } catch (Exception $e) {
+        $conn->close();
         throw $e;
     }
 }
