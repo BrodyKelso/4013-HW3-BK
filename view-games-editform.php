@@ -22,8 +22,8 @@
                         <input type="text" class="form-control" id="opponent_name-<?php echo $game['game_id']; ?>" name="opponent_name" value="<?php echo htmlspecialchars($game['opponent_name']); ?>">
                     </div>
                     <div class="mb-3">
-                        <label for="gameDate-<?php echo $game['game_id']; ?>" class="form-label">Date</label>
-                        <input type="text" class="form-control" id="gameDate-<?php echo $game['game_id']; ?>" name="gameDate" value="<?php echo htmlspecialchars($game['date']); ?>">
+                        <label for="date-<?php echo $game['game_id']; ?>" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="date-<?php echo $game['game_id']; ?>" name="date" value="<?php echo htmlspecialchars($game['date']); ?>">
                     </div>
                     <div class="mb-3">
                         <label for="location-<?php echo $game['game_id']; ?>" class="form-label">Location</label>
@@ -33,14 +33,12 @@
                         <label for="result-<?php echo $game['game_id']; ?>" class="form-label">Result</label>
                         <input type="text" class="form-control" id="result-<?php echo $game['game_id']; ?>" name="result" value="<?php echo htmlspecialchars($game['result']); ?>">
                     </div>
+                    <div class="mb-3">
+                        <label for="team_id-<?php echo $game['game_id']; ?>" class="form-label">Team ID</label>
+                        <input type="text" class="form-control" id="team_id-<?php echo $game['game_id']; ?>" name="team_id" value="<?php echo htmlspecialchars($game['team_id']); ?>">
+                    </div>
                     <input type="hidden" name="game_id" value="<?php echo htmlspecialchars($game['game_id']); ?>">
                     <input type="hidden" name="actionType" value="Edit">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                        <button type="submit" class="btn btn-primary
