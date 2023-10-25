@@ -10,7 +10,7 @@ if (isset($_POST['actionType']))
     switch ($_POST['actionType'])
     {
         case "Add":
-            if (insertPlayer($_POST['player_id'],$_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['jersey_number'], $_POST['year'], $_POST['team_id']))
+            if (insertPlayer($_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['jersey_number'], $_POST['year'], $_POST['team_id']))
             {
                 echo '<div class="alert alert-success" role="alert">Player added.</div>';
             }

@@ -14,11 +14,11 @@ function selectPlayers() {
     }
 }
 
-function insertPlayer($player_id,$first_name, $last_name, $position, $jersey_number, $year, $team_id) {
+function insertPlayer($first_name, $last_name, $position, $jersey_number, $year, $team_id) {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("INSERT INTO `Players` (`player_id`,`first_name`, `last_name`, `position`, `jersey_number`, `year`, `team_id`) VALUES (?, ?, ?, ?, ?, ?);");
-        $stmt->bind_param("isssiis", $player_id,$first_name, $last_name, $position, $jersey_number, $year, $team_id);
+        $stmt = $conn->prepare("INSERT INTO `Players` (`first_name`, `last_name`, `position`, `jersey_number`, `year`, `team_id`) VALUES (?, ?, ?, ?, ?, ?);");
+        $stmt->bind_param("sssiis", $first_name, $last_name, $position, $jersey_number, $year, $team_id);
         $success = $stmt->execute();
         $conn->close();
         return $success;
@@ -27,6 +27,7 @@ function insertPlayer($player_id,$first_name, $last_name, $position, $jersey_num
         throw $e;
     }
 }
+
 
 function updatePlayer($first_name, $last_name, $position, $jersey_number, $year, $team_id, $player_id) {
     try {
