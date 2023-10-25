@@ -9,13 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['actionType'])) {
         switch ($_POST['actionType']) {
             case "Add":
-                if (isset($_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['team_id'])) {
+                if (isset($_POST['coach_id'], $_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['team_id'])) {
+                    $coach_id = $_POST['coach_id']; // Include coach_id
                     $first_name = $_POST['first_name'];
                     $last_name = $_POST['last_name'];
                     $position = $_POST['position'];
                     $team_id = $_POST['team_id'];
 
-                    if (insertCoach($first_name, $last_name, $position, $team_id)) {
+                    if (insertCoach($coach_id, $first_name, $last_name, $position, $team_id)) {
                         echo '<div class="alert alert-success" role="alert">Coach added.</div>';
                     } else {
                         echo '<div class="alert alert-danger" role="alert">Coach not added.</div>';
@@ -25,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             case "Edit":
                 if (isset($_POST['coach_id'], $_POST['first_name'], $_POST['last_name'], $_POST['position'], $_POST['team_id'])) {
-                    $coach_id = $_POST['coach_id'];
+                    $coach_id = $_POST['coach_id']; // Include coach_id
                     $first_name = $_POST['first_name'];
                     $last_name = $_POST['last_name'];
                     $position = $_POST['position'];
@@ -57,4 +58,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $coaches = selectCoaches();
 include "view-coaches.php";
 include "view-footer.php";
+
 ?>
