@@ -4,7 +4,7 @@ require_once("util-db.php");
 function selectAllPlayer() {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("SELECT 'player_id', 'first_name', 'last_name', 'position', 'jersey_number', 'year', 'team_id' FROM 'Players'");
+        $stmt = $conn->prepare("SELECT 'player_id', 'first_name', 'last_name', 'position', 'jersey_number', 'year', 'team_id' FROM Players");
         $stmt->execute();
         $result = $stmt->get_result();
         $conn->close();
