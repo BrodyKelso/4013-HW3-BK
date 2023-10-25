@@ -13,11 +13,11 @@ function selectCoaches() {
     }
 }
 
-function insertCoach($first_name, $last_name, $position, $team_id) {
+function insertCoach($coach_id, $first_name, $last_name, $position, $team_id) {
     try {
         $conn = get_db_connection();
-        $stmt = $conn->prepare("INSERT INTO Coaches (first_name, last_name, position, team_id) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("sssi", $first_name, $last_name, $position, $team_id);
+        $stmt = $conn->prepare("INSERT INTO Coaches (coach_id, first_name, last_name, position, team_id) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("isssi", $coach_id, $first_name, $last_name, $position, $team_id);
         $success = $stmt->execute();
         $conn->close();
         return $success;

@@ -18,6 +18,10 @@
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="mb-3">
+                        <label for="ccoach_id-<?php echo $coach['coach_id']; ?>" class="form-label">Coach ID</label>
+                        <input type="number" class="form-control" id="ccoach_id-<?php echo $coach['coach_id']; ?>" name="cCoachId" value="<?php echo htmlspecialchars($coach['coach_id']); ?>">
+                    </div>
+                    <div class="mb-3">
                         <label for="cfirst_name-<?php echo $coach['coach_id']; ?>" class="form-label">First Name</label>
                         <input type="text" class="form-control" id="cfirst_name-<?php echo $coach['coach_id']; ?>" name="cFirstName" value="<?php echo htmlspecialchars($coach['first_name']); ?>">
                     </div>
@@ -33,7 +37,6 @@
                         <label for="cteam_id-<?php echo $coach['coach_id']; ?>" class="form-label">Team ID</label>
                         <input type="number" class="form-control" id="cteam_id-<?php echo $coach['coach_id']; ?>" name="cTeamId" value="<?php echo htmlspecialchars($coach['team_id']); ?>">
                     </div>
-                    <input type="hidden" name="coach_id" value="<?php echo htmlspecialchars($coach['coach_id']); ?>">
                     <input type="hidden" name="actionType" value="Edit">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
