@@ -35,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="year-<?php echo $player['player_id']; ?>" class="form-label">Year</label>
-                        <input type="number" class="form-control" id="year-<?php echo $player['player_id']; ?>" name="year" value="<?php echo htmlspecialchars($player['year']); ?>">
+                        <input type="text" class="form-control" id="year-<?php echo $player['player_id']; ?>" name="year" value="<?php echo htmlspecialchars($player['year']); ?>">
                     </div>
                     <div class="mb-3">
                         <label for="team_id-<?php echo $player['player_id']; ?>" class="form-label">Team ID</label>
