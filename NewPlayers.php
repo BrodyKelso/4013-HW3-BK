@@ -1,6 +1,6 @@
 <?php
 require_once("util-db.php");
-require_once("model-players.php");
+require_once("model-newplayers.php");
 require_once("view-newplayers.php");
 
 $pageTitle = "Players";
