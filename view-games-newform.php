@@ -17,6 +17,10 @@
             <div class="modal-body">
                 <form method="post" action="">
                     <div class="mb-3">
+                        <label for="game_id" class="form-label">Game ID</label>
+                        <input type="text" class="form-control" id="game_id" name="game_id">
+                    </div>
+                    <div class="mb-3">
                         <label for="opponent_name" class="form-label">Opponent Name</label>
                         <input type="text" class="form-control" id="opponent_name" name="opponent_name">
                     </div>
